@@ -1,6 +1,6 @@
-import Header from '../Header'
-import { useState } from "react";
-import './index.css'
+import Header from '../Header';
+import { useState, useEffect } from "react";
+import './index.css';
 import { Line } from "react-chartjs-2";
 import {
    Chart as ChartJS,
@@ -12,6 +12,7 @@ import {
    Tooltip,
    Legend,
 } from "chart.js";
+import Cookies from 'js-cookie'; // Ensure you have this installed for cookie access
 
 // Register Chart.js components
 ChartJS.register(
@@ -24,15 +25,16 @@ ChartJS.register(
    Legend
 );
 
-
 const Home = () => {
-
    const [homeariable, setHomeVariable] = useState({
       hours: 0,
       minutes: 0,
       checkIn: '08:00',
       checkOut: '23:78'
-   })
+   });
+
+   const userId = Cookies.get('user_id');
+   const jwtToken = Cookies.get('jwt_token');
 
    const days = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"]; // X-axis (days)
    const data = {
@@ -78,6 +80,101 @@ const Home = () => {
       },
    };
 
+   // Function to trigger API call on page load
+   useEffect(() => {
+      if (userId && jwtToken) {
+         fetchReloadData();
+      }
+   }, [userId, jwtToken]);
+
+   const fetchReloadData = async () => {
+      try {
+         const response = await fetch('http://localhost:8080/reload', { 
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+               'Authorization': `Bearer ${jwtToken}`,
+            },
+            body: JSON.stringify({ userId }),
+         });
+
+         const data = await response.json();
+         console.log(data); 
+
+         const { todayCheckin, todayCheckout, lastFiveDaysHours } = data;
+
+         let checkInTime = todayCheckin === "No Check-in" ? null : todayCheckin;
+         let checkOutTime = todayCheckout === "No Check-out" ? null : todayCheckout;
+
+         if (checkInTime && checkOutTime) {
+       
+            const checkInDate = new Date(checkInTime);  
+            const checkOutDate = new Date(checkOutTime); 
+            const diffInMilliseconds = checkOutDate - checkInDate; 
+
+            const hours = Math.floor(diffInMilliseconds / (1000 * 60 * 60));
+            const minutes = Math.floor((diffInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+
+            setHomeVariable({
+               ...homeariable,
+               hours,
+               minutes,
+               checkIn: todayCheckin,
+               checkOut: todayCheckout
+            });
+         } else {
+            setHomeVariable({
+               ...homeariable,
+               hours: 0,
+               minutes: 0,
+               checkIn: todayCheckin,
+               checkOut: todayCheckout
+            });
+         }
+      } catch (error) {
+         console.error('Error in reload API:', error);
+      }
+   };
+
+   // Handle Check-In
+   const handleCheckIn = async () => {
+      if (userId && jwtToken) {
+         try {
+            const response = await fetch('http://localhost:8080/checkin', { // Replace with your check-in API
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${jwtToken}`,
+               },
+               body: JSON.stringify({ userId }),
+            });
+            const data = await response.json();
+            console.log(data);
+         } catch (error) {
+            console.error('Error during check-in API:', error);
+         }
+      }
+   };
+
+   // Handle Check-Out
+   const handleCheckOut = async () => {
+      if (userId && jwtToken) {
+         try {
+            const response = await fetch('http://localhost:8080/checkout', { // Replace with your check-out API
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${jwtToken}`,
+               },
+               body: JSON.stringify({ userId }), // Only sending userId
+            });
+            const data = await response.json();
+            console.log(data);
+         } catch (error) {
+            console.error('Error during check-out API:', error);
+         }
+      }
+   };
 
    return (
       <div className="home-container">
@@ -88,13 +185,13 @@ const Home = () => {
                <div className='hours-minutes'>
                   <label className='clock-para'>{homeariable.hours} : {homeariable.minutes}</label>
                </div>
-               <button className='check-in'>
+               <button className='check-in' onClick={handleCheckIn}>
                   Check In
                </button>
-               <button className='check-in'>
+               <button className='check-in' onClick={handleCheckOut}>
                   Check Out
                </button>
-               <button className='check-in'>
+               <button className='check-in' onClick={fetchReloadData}>
                   Reload
                </button>
             </div>
@@ -124,7 +221,7 @@ const Home = () => {
             </div>
          </div>
       </div>
-   )
-}
+   );
+};
 
 export default Home;
