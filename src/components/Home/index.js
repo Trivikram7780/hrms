@@ -29,8 +29,8 @@ const Home = () => {
    const [homeariable, setHomeVariable] = useState({
       hours: 0,
       minutes: 0,
-      checkIn: '08:00',
-      checkOut: '23:78'
+      checkIn: '',
+      checkOut: ''
    });
 
    const userId = Cookies.get('user_id');
@@ -82,7 +82,7 @@ const Home = () => {
 
    // Function to trigger API call on page load
    useEffect(() => {
-      if (userId && jwtToken) {
+      if (jwtToken) {
          fetchReloadData();
       }
    }, [userId, jwtToken]);
@@ -93,7 +93,6 @@ const Home = () => {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json',
-               'Authorization': `Bearer ${jwtToken}`,
             },
             body: JSON.stringify({ userId }),
          });
@@ -144,7 +143,6 @@ const Home = () => {
                method: 'POST',
                headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${jwtToken}`,
                },
                body: JSON.stringify({ userId }),
             });
@@ -164,7 +162,6 @@ const Home = () => {
                method: 'POST',
                headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${jwtToken}`,
                },
                body: JSON.stringify({ userId }), // Only sending userId
             });

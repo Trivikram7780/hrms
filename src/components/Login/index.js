@@ -14,7 +14,8 @@ const Login = () => {
     const history = useNavigate()
 
     const token = Cookies.get('jwt_token')
-    if(token !== undefined){
+
+    if(token !== undefined ){
         return <Navigate to="/" />
     }
     

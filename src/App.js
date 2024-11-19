@@ -3,6 +3,7 @@ import { BrowserRouter, Routes , Route } from 'react-router-dom';
 import Login from './components/Login'
 import Register from './components/Register'
 import Home from './components/Home'
+import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Route element={<ProtectedRoute />}>
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
     </Routes>
     </BrowserRouter>
