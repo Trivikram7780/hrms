@@ -101,14 +101,14 @@ const Register = () => {
 
     const calculateAge = (dateString) => {
         try {
-            // Parse the string date to an ISO date
+        
             const birthDate = parseISO(dateString);
 
-            // Calculate the difference in years between today and the birthDate
+           
             const today = new Date();
             const age = differenceInYears(today, birthDate);
 
-            return age.toString(); // Return age correctly as a string
+            return age.toString(); 
         } catch (error) {
             console.error("Error calculating age:", error);
             return null;

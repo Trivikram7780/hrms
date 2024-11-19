@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Home from './components/Home'
 import Profile from './components/Profile';
+import AdminPortal from './components/AdminPortal';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/adminPortal" element={<AdminPortal />} />
         </Route>
     </Routes>
     </BrowserRouter>
