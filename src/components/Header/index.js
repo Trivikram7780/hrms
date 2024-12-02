@@ -15,8 +15,7 @@ const Header = () => {
             </div>
             <div className="nav-center-part">
                 <Link className="nav-page" to='/'>Home</Link>
-                <Link className="nav-page" to='/adminPortal'>Admin Portar</Link>
-                <Link className="nav-page" to='/register'>Register</Link>
+                <Link className="nav-page" to='/adminPortal'>Admin Portal</Link>
             </div>
             <div className="nav-last-part">
                <Link className="nav-profile" to='/profile'><FaUserAlt /></Link> 

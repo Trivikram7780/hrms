@@ -6,3 +6,100 @@
    
     background-color: black ;
 }
+
+.nav-content{
+    display: flex;
+    height: 100%;
+}
+.nav-bar-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    background-color: aqua;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: rgba(255, 255, 255, 0.23);
+    padding-top: 25px;
+}
+.nav-button{
+    color: white;
+    background-color: gray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top:1px solid white;
+    border-bottom:1px solid white;
+}
+.nav-button:hover{
+    color:white;
+    background-color: rgb(226, 13, 13);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.demo{
+    color: white;
+}
+.emp-upd-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    width: 100%;
+
+}
+.search-sec{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+.search-bar{
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  width: 100%;
+}
+.search-bar-container{
+background-color: white;
+display: flex;
+justify-content: center;
+padding: 8px;
+width: 100%;
+border-radius: 5px;
+
+
+
+}
+.create-btn{
+    background-color: rgb(31, 216, 31);
+    color: rgb(249, 246, 246);
+    border: 0px solid white;
+    width: 30%;
+    border-radius: 5px;
+}
+.search-bar-button{
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: red;
+    border: 0px solid white;
+    margin-left: 3px;
+    border-radius: 5px;
+}
+.ran{
+    display: flex;
+    width: 60%;
+}
+

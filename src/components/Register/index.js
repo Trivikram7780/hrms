@@ -17,7 +17,8 @@ const Register = () => {
         company: "",
         role: "",
         doj: "",
-        gender: ""
+        gender: "",
+        empType:""
     })
     const [mantain, setMatain] = useState({
         page: 1,
@@ -51,6 +52,15 @@ const Register = () => {
             return{
                 ...preveState,
                 role:event.target.value
+            }
+        })
+    }
+
+    const changeEmpType = event => {
+        setReister(prevState => {
+            return{
+                ...prevState,
+                empType:event.target.value
             }
         })
     }
@@ -168,7 +178,7 @@ const Register = () => {
     return (
         <div className='register-page-container'>
             <div className='register-form-container'>
-                <p className="register-heading">Registration Form</p>
+                <p className="register-heading">Create User</p>
                 <form className='register-form'>
                     <label className='username-label' htmlFor='username'>
                         USENAME*
@@ -295,6 +305,35 @@ const Register = () => {
 
                         />
                     </div>
+                    <label className='username-label' htmlFor='empType'>
+                        Employee Type
+                    </label>
+                    <div className="input-container">
+                        <input
+                            className="username-input"
+                            value={register.role}
+                            type="text"
+                            id="empType"
+                            placeholder='Enter emp Type'
+                            onChange={changeEmpType}
+
+                        />
+                    </div>
+                    <label className='username-label' htmlFor='role'>
+                        Role
+                    </label>
+                    <div className="input-container">
+                        <input
+                            className="username-input"
+                            value={register.role}
+                            type="text"
+                            id="role"
+                            placeholder='Enter your role'
+                            onChange={changeRole}
+
+                        />
+                    </div>
+                    
                 </form>
             </div>
         </div>
