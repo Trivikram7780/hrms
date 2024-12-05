@@ -17,15 +17,14 @@
     align-items: center;
     height: 100%;
     width: 20%;
-    background-color: aqua;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background: rgba(255, 255, 255, 0.23);
+    background:  #1e1e2f;;
     padding-top: 25px;
 }
 .nav-button{
     color: white;
-    background-color: gray;
+    background-color: #1e1e2f;
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
@@ -88,6 +87,7 @@ border-radius: 5px;
     border: 0px solid white;
     width: 30%;
     border-radius: 5px;
+    cursor: pointer;
 }
 .search-bar-button{
     display: block;
@@ -97,9 +97,302 @@ border-radius: 5px;
     border: 0px solid white;
     margin-left: 3px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .ran{
     display: flex;
     width: 60%;
 }
+.card{
+    background: #181414;
+    
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+.card-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.emp-btn{
+    background-color: red;
+    border: 0px solid white;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.create-form {
+    max-width: 500px;
+    overflow-y: scroll;
+    height: 60%;
+    width: 60%;
+    margin: auto;
+    background-color: #1e1e2f; /* Dark background for form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    color: #eaeaea; /* Light text for contrast */
+}
 
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #cfcfcf; /* Softer white for labels */
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px;
+    border: 1px solid #444; /* Subtle border for inputs */
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #2a2a3d; /* Darker input background */
+    color: #fff; /* White text inside inputs */
+}
+
+.form-group input::placeholder {
+    color: #888; /* Placeholder text color */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-button {
+    background-color: #007bff; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+ /* Hover effect */
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #b21f2d;
+}
+
+/* Overflow handling for card */
+.card {
+    background: #252537; /* Dark card background */
+    border: 1px solid #444; /* Subtle border */
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    max-height: 400px; /* Set max height for overflow */
+ /* Enable vertical scrolling */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+    color: #eaeaea; /* Light text color */
+}
+
+/* Scrollbar styling for card */
+.card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background-color: #444; /* Dark scrollbar thumb */
+    border-radius: 4px;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Highlight on hover */
+}
+
+.card::-webkit-scrollbar-track {
+    background-color: #1e1e2f; /* Scrollbar track color */
+}
+/* General Styles for Dark Mode */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.salary-details-container {
+    margin: 20px auto;
+    max-width: 90%;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.salary-details-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.salary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.salary-table thead {
+    background-color: #333333;
+}
+
+.salary-table th,
+.salary-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #444444;
+}
+
+.salary-table th {
+    color: #b0b0b0;
+    font-weight: bold;
+}
+
+.salary-table td {
+    color: #e0e0e0;
+}
+
+.salary-table tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+.salary-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+.edit-salary-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-salary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Salary Form Styles */
+.salary-form {
+    background-color: #1e1e1e;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:scroll;
+    height: 50%;
+    
+    border-radius: 8px;
+
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.salary-form h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.salary-form .form-group {
+    margin-bottom: 15px;
+}
+
+.salary-form label {
+    display: block;
+    color: #b0b0b0;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.salary-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.salary-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.salary-form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.salary-form .submit-button,
+.salary-form .cancel-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    width: 48%;
+    text-align: center;
+}
+
+.salary-form .submit-button {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.salary-form .submit-button:hover {
+    background-color: #0056b3;
+}
+
+.salary-form .cancel-button {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.salary-form .cancel-button:hover {
+    background-color: #4e555b;
+}
+.admin-portal-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
